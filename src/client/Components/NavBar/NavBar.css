@@ -6,6 +6,16 @@
     text-align: center;
 }
 
+.nav__search--error {
+   color: #ff0000;
+   position: absolute;
+   margin-left: 256px;
+   margin-top: 6px;
+   border-radius: 4px;
+   padding: 4px;
+   box-shadow: 1px 1px 3px #ff0000;
+}
+
 .NavBar__list {
    display: flex;
    margin: 0;
@@ -32,5 +42,11 @@
 @media screen and (max-width: 449px) {
    .NavBar__list--text {
       padding: 10px;
+   }
+
+   .nav__search--error {
+      right: 26px;
+      margin: 0;
+      top: 40px;
    }
 }

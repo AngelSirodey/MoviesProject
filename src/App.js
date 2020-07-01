@@ -9,7 +9,6 @@ import NavBar from './client/Components/NavBar';
 import Home from './client/Components/Home';
 import MovieDetails from './client/Components/MovieDetails';
 import Favorites from './client/Components/Favorites';
-import CardContainer from './client/Components/Card';
 import { MoviesProvider } from './client/Store/movieSearchContext';
 
 import './App.css'
@@ -32,9 +31,6 @@ function App() {
             </Route>
             <Route path="/details">
               <MovieDetails />
-            </Route>
-            <Route path="/movies">
-              <CardContainer />
             </Route>
             <Route path="/">
               <Home />

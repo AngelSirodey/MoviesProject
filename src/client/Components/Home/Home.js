@@ -11,15 +11,15 @@ const Home = () => {
     const [currentPage, setCurrentPage] = useState(1);
     const moviesPerPage = 6
     const totalResults =  searchResult && parseInt(searchResult.totalResults, 10);
-    const pageRange = searchResult && Math.ceil(searchResult.Search.length / moviesPerPage);
+    const pageRange = searchResult && Math.ceil(searchResult.length / moviesPerPage);
     const indexOfLastMovie = currentPage * moviesPerPage;
     const indexOfFirstMovie = indexOfLastMovie - moviesPerPage;
-    const currentMovies = searchResult && searchResult.Search.slice(indexOfFirstMovie, indexOfLastMovie);   
+    const currentMovies = searchResult && searchResult.slice(indexOfFirstMovie, indexOfLastMovie);
 
     const handlePageChange = (page) => {
         setCurrentPage(page)
     };
-  
+    
     return searchResult ?  (
         <Fragment>
           <Pagination

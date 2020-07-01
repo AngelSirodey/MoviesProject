@@ -7,7 +7,7 @@ export const FavoritesContext = React.createContext();
 
 const MoviesProvider = ({children}) => {
 	const storageFaves = JSON.parse(localStorage.getItem('user')) || [];
-	const [searchResult, setSearchResult] = useState(null);
+	const [searchResult, setSearchResult] = useState([]);
 	const [userFavorites, setUserFavorites] = useState(storageFaves);
 	
 	return <MoviesContext.Provider value={{ search: [searchResult, setSearchResult], favorites: [userFavorites, setUserFavorites]}}>{children}</MoviesContext.Provider>
@@ -17,7 +17,6 @@ const useMovieContext = () => {
     const { search, favorites } = useContext(MoviesContext);
 	const [searchResult, setSearchResult] = search;
 	const [userFavorites, setUserFavorites] = favorites;
-
 	const saveFavorites = (movieCard) => {
 		const userF = userFavorites;
 		userF.push(movieCard);
@@ -38,7 +37,8 @@ const useMovieContext = () => {
     }, 500);
 
     return {
-        searchResult,
+		searchResult: searchResult.Search,
+		searchError: searchResult.Error,
 		searchMovie,
 		saveFavorites,
 		userFavorites,

@@ -65,7 +65,7 @@
     .HomePage__container {
         width: auto;
         padding: 0 20px;
-        margin-top: 16px;
+        margin-top: 32px;
     }
 
     .HomePage__image {
@@ -90,6 +90,6 @@
     }
 
     .pagination {
-        justify-content: center;
+        justify-content: flex-end;
     }
 }
