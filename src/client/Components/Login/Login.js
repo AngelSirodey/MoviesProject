@@ -2,14 +2,13 @@ import React from 'react';
 
 import './Login.css';
 
-
 const Login = ({ setIsAuth, setOpenLogin }) => {
   const validateLogin = (email, password) => {
     const emailMatch = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
     if  ( emailMatch.test(email) && password !== '' ) {
-      return true
+      return true;
     };
-    return false
+    return false;
   };
 
   const handleLogin = (event) => {

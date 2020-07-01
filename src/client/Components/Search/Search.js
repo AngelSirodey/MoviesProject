@@ -9,7 +9,7 @@ const Search = () => {
 
   const searchMovies = (value) => {
     return value.length > 2 && searchMovie(value)
-  }
+  };
   
     return (
 		  <input onChange={({ target: { value } }) => searchMovies(value)} type="search" id="search" name="search" placeholder="Search" className="Search" />

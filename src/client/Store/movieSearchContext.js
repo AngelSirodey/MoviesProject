@@ -10,13 +10,14 @@ const MoviesProvider = ({children}) => {
 	const [searchResult, setSearchResult] = useState([]);
 	const [userFavorites, setUserFavorites] = useState(storageFaves);
 	
-	return <MoviesContext.Provider value={{ search: [searchResult, setSearchResult], favorites: [userFavorites, setUserFavorites]}}>{children}</MoviesContext.Provider>
+	return <MoviesContext.Provider value={{ search: [searchResult, setSearchResult], favorites: [userFavorites, setUserFavorites]}}>{children}</MoviesContext.Provider>;
 };
 
 const useMovieContext = () => {
-    const { search, favorites } = useContext(MoviesContext);
+	const { search, favorites } = useContext(MoviesContext);
 	const [searchResult, setSearchResult] = search;
 	const [userFavorites, setUserFavorites] = favorites;
+
 	const saveFavorites = (movieCard) => {
 		const userF = userFavorites;
 		userF.push(movieCard);
@@ -39,6 +40,7 @@ const useMovieContext = () => {
     return {
 		searchResult: searchResult.Search,
 		searchError: searchResult.Error,
+		searchTotalResults: searchResult.totalResults,
 		searchMovie,
 		saveFavorites,
 		userFavorites,

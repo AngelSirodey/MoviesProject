@@ -6,8 +6,8 @@ import { useMovieContext } from '../../Store/movieSearchContext';
 
 import './Card.css';
 
-const Card = ({ movie, fromFavorite }) => {
-  const { saveFavorites, deleteFavorites } = useMovieContext();
+const Card = ({ movie, fromFavorite, handleDeleteFavorites }) => {
+  const { saveFavorites } = useMovieContext();
   const { Poster, Title, imdbID } = movie;
   const detailsURL = `/details?imdbID=${imdbID}`;
 
@@ -19,7 +19,7 @@ const Card = ({ movie, fromFavorite }) => {
           <div className="Card__links">
             {!fromFavorite ?
               <p onClick={() => saveFavorites(movie)} >Add to favotires</p> :
-              <p onClick={() => deleteFavorites(movie)} >Remove</p>}
+              <p onClick={() => handleDeleteFavorites(movie)} >Remove</p>}
            <Link to={detailsURL}> More details -></Link>
           </div>
         </div>

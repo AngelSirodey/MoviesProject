@@ -16,9 +16,10 @@ import './App.css'
 function App() {
   const storedAuth = sessionStorage.getItem('isAuth') || false;
   const [isAuth, setIsAuth] = useState(storedAuth);
+  
   const handleSetIsAuth = (validation) => {
-    setIsAuth(validation)
-    sessionStorage.setItem('isAuth', validation)
+    setIsAuth(validation);
+    sessionStorage.setItem('isAuth', validation);
   };
 
   return (

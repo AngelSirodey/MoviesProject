@@ -1,21 +1,24 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
 import { useMovieContext } from '../../Store/movieSearchContext';
-import CardContainer from '../Card';
+import Card from '../Card/Card';
 
 import './Favorites.css';
 
 const Favorites = () => {
-  const { userFavorites } = useMovieContext();
-  const [numOfItems, setNumOfItems] = useState(0);
-
-  useEffect(()=> {
-    setNumOfItems(userFavorites.length)
-  }, [numOfItems, userFavorites]);
+  const { userFavorites, deleteFavorites } = useMovieContext();
+  const [loading, setLoading] = useState(false);
+  
+  const handleDeleteFavorites = (movie) => {
+    setLoading(!loading);
+    deleteFavorites(movie);
+  };
 
   return (
-        <div className="Favorites__container">
-        <CardContainer movies={userFavorites} fromFavorite />
+      <div className="Favorites__container">
+      {userFavorites ? (
+        userFavorites.map(movie => <Card key={movie.imdbID} movie={movie} fromFavorite handleDeleteFavorites={handleDeleteFavorites}/>)
+    ) : null}
       </div>
     );
 };
