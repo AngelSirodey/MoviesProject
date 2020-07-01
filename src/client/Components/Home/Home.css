@@ -1,7 +1,27 @@
 .CardContainer {
     display: flex;
     flex-wrap: wrap;
-    justify-content: flex-start;
+    justify-content: space-around;
+}
+
+.pagination {
+    display: flex;
+    margin: 10px;
+    padding: 0;
+}
+
+.pagination > li  {
+    padding: 0 10px;
+    margin: 0 2px;
+    list-style: none;
+    font-weight: 600;
+    font-size: 18px;
+    border: solid 2px #1cbacc;
+}
+
+.pagination li > a  {
+    color: #1cbacc;
+    text-decoration: none;
 }
 
 .HomePage__container {
@@ -67,5 +87,9 @@
     .HomePage__text {
         font-size: 24px;
         padding: 0;
+    }
+
+    .pagination {
+        justify-content: center;
     }
 }

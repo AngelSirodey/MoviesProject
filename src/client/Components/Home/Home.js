@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState, Fragment } from 'react';
+import Pagination from "react-js-pagination";
 
 import { useMovieContext } from '../../Store/movieSearchContext';
 import CardContainer from '../Card';
@@ -7,11 +8,32 @@ import './Home.css';
 
 const Home = () => {
     const { searchResult } = useMovieContext();
+    const [currentPage, setCurrentPage] = useState(1);
+    const moviesPerPage = 6
+    const totalResults =  searchResult && parseInt(searchResult.totalResults, 10);
+    const pageRange = searchResult && Math.ceil(searchResult.Search.length / moviesPerPage);
+    const indexOfLastMovie = currentPage * moviesPerPage;
+    const indexOfFirstMovie = indexOfLastMovie - moviesPerPage;
+    const currentMovies = searchResult && searchResult.Search.slice(indexOfFirstMovie, indexOfLastMovie);   
 
+    const handlePageChange = (page) => {
+        setCurrentPage(page)
+    };
+  
     return searchResult ?  (
-        <div className="CardContainer">
-            <CardContainer movies={searchResult.Search} />
-        </div>
+        <Fragment>
+          <Pagination
+            totalItemsCount={totalResults}
+            itemsCountPerPage={moviesPerPage}
+            onChange={(evt) => handlePageChange(evt)}
+            activePage={currentPage}
+            pageRangeDisplayed={pageRange}
+            className="pagination"
+            />
+          <div className="CardContainer">
+            <CardContainer movies={currentMovies} />
+          </div>
+        </Fragment>
    ) : <HomePage />
 };
 

@@ -10,7 +10,7 @@ const Card = ({ movie, fromFavorite }) => {
   const { saveFavorites, deleteFavorites } = useMovieContext();
   const { Poster, Title, imdbID } = movie;
   const detailsURL = `/details?imdbID=${imdbID}`;
-console.log("Card rerender", fromFavorite)
+
    return (
       <div className="Card__container">
         <img src={Poster} className="Card__image" alt="poster" />

@@ -27,3 +27,10 @@
 .NavBar__list--text:hover {
    background: rgba(0,0,0,.25);
 }
+
+
+@media screen and (max-width: 449px) {
+   .NavBar__list--text {
+      padding: 10px;
+   }
+}

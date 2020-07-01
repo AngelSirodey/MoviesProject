@@ -31,7 +31,6 @@ const useMovieContext = () => {
 		userF.splice(indexToDelete, 1);
 		localStorage.setItem('user', JSON.stringify(userFavorites));
 		setUserFavorites(userF);
-		console.log('state______', userFavorites);
 	};
 
 	const searchMovie = debounce((title) => {
