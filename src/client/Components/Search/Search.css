@@ -1,0 +1,17 @@
+.Search {
+    border: none;
+    margin: 6px;
+    border-radius: 2px;
+    width: 240px;
+}
+
+.Search:focus {
+    outline: 0;
+}
+
+
+@media screen and (max-width: 449px) {
+    .Search {
+        width: auto;
+    }
+}

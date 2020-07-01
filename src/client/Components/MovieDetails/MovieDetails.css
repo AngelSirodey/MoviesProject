@@ -1,0 +1,32 @@
+.MovieDetails__info {
+    display: flex;
+}
+
+.MovieDetails__image {
+    flex: 1;
+    max-width: fit-content;
+}
+
+.MovieDetails__details {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.MovieDetails__details > li {
+    list-style: none;
+}
+
+.MovieDetails__details > :first-child {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 16px;
+    color: #1cbacc;
+    text-decoration: underline;
+}
+
+.MovieDetails__plot {
+    font-size: 16px;
+    padding: 12px;
+}

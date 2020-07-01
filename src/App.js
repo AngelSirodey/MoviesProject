@@ -1,26 +1,51 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState }from 'react';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route
+} from "react-router-dom";
+// import Pagination from "react-js-pagination";
+
+import NavBar from './client/Components/NavBar';
+import Home from './client/Components/Home';
+import MovieDetails from './client/Components/MovieDetails';
+import Favorites from './client/Components/Favorites';
+import { MoviesProvider } from './client/Store/movieSearchContext';
+
+import './App.css'
 
 function App() {
+  const storedAuth = sessionStorage.getItem('isAuth') || false;
+  const [isAuth, setIsAuth] = useState(storedAuth);
+  // const [currentPage, setCurrentPage] = useState(1);
+  const handleSetIsAuth = (validation) => {
+    setIsAuth(validation)
+    sessionStorage.setItem('isAuth', validation)
+  };
+
+  // const handlePageChange = () => (
+  //   setCurrentPage()
+  // );
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <MoviesProvider>
+        <NavBar isAuth={isAuth} setIsAuth={handleSetIsAuth} />
+        {/* <Pagination totalItemsCount={30} itemsCountPerPage={3} onChange={() => handlePageChange} activePage={currentPage} itemClass="page-item" linkClass="page-link" /> */}
+          <Switch>
+            <Route path="/favorites">
+              <Favorites />
+            </Route>
+            <Route path="/details">
+              <MovieDetails />
+            </Route>
+            <Route path="/">
+              <Home />
+            </Route>
+          </Switch>
+      </MoviesProvider>
+    </Router>
   );
-}
+};
 
 export default App;
