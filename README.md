@@ -1,5 +1,11 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## How to start:
+
+Clone this repo to your local machine using `https://github.com/AngelSirodey/MoviesProject.git`. <br />
+After cloning it run `npm install` to install all the dependencies.<br />
+then, run `yarn start`
+
 ## Available Scripts
 
 In the project directory, you can run:
