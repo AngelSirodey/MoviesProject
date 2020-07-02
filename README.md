@@ -14,7 +14,7 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 Launches the test runner in the interactive watch mode.<br />
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-## Description of the project:
+## Project description:
 
 There is a navigation bar where you can login and with a movie search  by name. When searching, movie cards will appear with the option to save to favorites and see more details.
 There is also a button to go to favorites and see the saved movies and this time instead of the option to save to favorites, we have the option to delete from favorites.
