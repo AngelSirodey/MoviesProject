@@ -6,7 +6,7 @@ const CardContainer = ({ movies, fromFavorite }) => {
     
     return movies ? (
         movies.map( movie => <Card key={movie.imdbID} movie={movie} fromFavorite={fromFavorite} />)
-    ) : null
+    ) : null;
 };
 
 export default CardContainer;

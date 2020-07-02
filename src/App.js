@@ -11,7 +11,7 @@ import MovieDetails from './client/Components/MovieDetails';
 import Favorites from './client/Components/Favorites';
 import { MoviesProvider } from './client/Store/movieSearchContext';
 
-import './App.css'
+import './App.css';
 
 function App() {
   const storedAuth = sessionStorage.getItem('isAuth') || false;

@@ -12,6 +12,6 @@ let wrapper;
 describe('CardContainer behaviour', () => {
     it('should render Card components', () => {
         wrapper = shallow(<CardContainer movies={MOCKED_MOVIES} />);
-        expect(wrapper.find('Card').length).toEqual(5)
+        expect(wrapper.find('Card').length).toEqual(5);
     });
 });

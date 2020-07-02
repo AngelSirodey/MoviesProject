@@ -18,9 +18,9 @@ describe('Login behaviour', () => {
         wrapper = shallow(<Login />);
         expect(wrapper.find('button')).toHaveLength(1);
         wrapper.find('.Login__button').simulate('click');
-    })
+    });
 
     it('should render as expected', () => {
         expect(wrapper).toMatchSnapshot();
-      });
+    });
 });
