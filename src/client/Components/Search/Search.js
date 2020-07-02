@@ -5,10 +5,15 @@ import { useMovieContext } from '../../Store/movieSearchContext';
 import './Search.css';
 
 const Search = () => {
-  const { searchMovie } = useMovieContext();
+  const { searchMovie, setSearchResult } = useMovieContext();
 
   const searchMovies = (value) => {
-    return value.length > 2 && searchMovie(value)
+    if (value.length > 2) {
+      searchMovie(value)
+    } else {
+      searchMovie('')
+      setSearchResult([])
+    }
   };
   
     return (

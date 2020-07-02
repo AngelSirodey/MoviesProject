@@ -6,7 +6,7 @@ import Card from '../Card/Card';
 import './Favorites.css';
 
 const Favorites = () => {
-  const { userFavorites, deleteFavorites } = useMovieContext();
+  const { userFavorites, deleteFavorites, searchResult } = useMovieContext();
   const [loading, setLoading] = useState(false);
   
   const handleDeleteFavorites = (movie) => {
@@ -16,9 +16,10 @@ const Favorites = () => {
 
   return (
       <div className="Favorites__container">
-      {userFavorites ? (
-        userFavorites.map(movie => <Card key={movie.imdbID} movie={movie} fromFavorite handleDeleteFavorites={handleDeleteFavorites}/>)
-    ) : null}
+      {userFavorites.length ? (
+        userFavorites.map(favMovies => <Card key={favMovies.imdbID} movie={favMovies} fromFavorite handleDeleteFavorites={handleDeleteFavorites}/>)
+    ) :  searchResult ? searchResult.map(searchMovie => <Card key={searchMovie.imdbID} movie={searchMovie} />) : 
+    null}
       </div>
     );
 };

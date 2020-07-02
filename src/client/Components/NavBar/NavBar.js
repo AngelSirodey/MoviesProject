@@ -9,16 +9,25 @@ import './NavBar.css';
 
 const NavBar = ({ isAuth, setIsAuth }) => {
   const { searchError } = useMovieContext();
+  const notMovies = searchError === 'Movie not found!' ? 'Movie not found!' : null;
   const [openLogin, setOpenLogin] = useState(false);
+  
+  const refreshPage = () => (
+    window.location.reload(false)
+  );
 
   return (
     <Fragment>
       <nav className="nav__container">
           <Search />
-          {searchError && <p className="nav__search--error">{searchError}</p>}
+          {notMovies && <p className="nav__search--error">{searchError}</p>}
           <div className="NavBar__list">
           <Link to="/" className="favorites__link"><div className="NavBar__list--text">Home</div></Link>
-            {isAuth ? <Link to="/favorites" className="favorites__link"><div className="NavBar__list--text">Favorites</div></Link> : <div onClick={() => setOpenLogin(true)} className="NavBar__list--text">Login</div>}
+            {isAuth ? 
+            <Link to="/favorites" onClick={refreshPage} className="favorites__link">
+              <div  className="NavBar__list--text">Favorites</div>
+            </Link> :
+             <div onClick={() => setOpenLogin(true)} className="NavBar__list--text">Login</div>}
           </div>
       </nav>
       {openLogin && <Login setIsAuth={setIsAuth} setOpenLogin={setOpenLogin} />}

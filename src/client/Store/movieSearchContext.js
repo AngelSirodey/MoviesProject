@@ -10,7 +10,11 @@ const MoviesProvider = ({children}) => {
 	const [searchResult, setSearchResult] = useState([]);
 	const [userFavorites, setUserFavorites] = useState(storageFaves);
 	
-	return <MoviesContext.Provider value={{ search: [searchResult, setSearchResult], favorites: [userFavorites, setUserFavorites]}}>{children}</MoviesContext.Provider>;
+	return (
+		<MoviesContext.Provider value={{ search: [searchResult, setSearchResult], favorites: [userFavorites, setUserFavorites]}}>
+			{children}
+		</MoviesContext.Provider>
+	);
 };
 
 const useMovieContext = () => {
@@ -44,7 +48,8 @@ const useMovieContext = () => {
 		searchMovie,
 		saveFavorites,
 		userFavorites,
-		deleteFavorites
+		deleteFavorites,
+		setSearchResult
 	};
 };
 
