@@ -1,3 +1,84 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Card Component behaviour should render as expected 1`] = `ShallowWrapper {}`;
+exports[`Card Component behaviour should render as expected 1`] = `
+<StaticRouter>
+  <Router
+    history={
+      Object {
+        "action": "POP",
+        "block": [Function],
+        "createHref": [Function],
+        "go": [Function],
+        "goBack": [Function],
+        "goForward": [Function],
+        "listen": [Function],
+        "location": Object {
+          "hash": "",
+          "pathname": "/",
+          "search": "",
+          "state": undefined,
+        },
+        "push": [Function],
+        "replace": [Function],
+      }
+    }
+    staticContext={Object {}}
+  >
+    <MoviesProvider>
+      <Card
+        fromFavorite={false}
+        movie={
+          Object {
+            "Poster": "image1.jpg",
+            "Title": "title1",
+            "imdbID": "1",
+          }
+        }
+      >
+        <div
+          className="Card__container"
+        >
+          <img
+            alt="poster"
+            className="Card__image"
+            src="image1.jpg"
+          />
+          <div
+            className="Card__description"
+          >
+            <p
+              className="Card__title"
+            >
+              title1
+            </p>
+            <div
+              className="Card__links"
+            >
+              <p
+                onClick={[Function]}
+              >
+                Add to favotires
+              </p>
+              <Link
+                to="/details?imdbID=1"
+              >
+                <LinkAnchor
+                  href="/details?imdbID=1"
+                  navigate={[Function]}
+                >
+                  <a
+                    href="/details?imdbID=1"
+                    onClick={[Function]}
+                  >
+                     More details -&gt;
+                  </a>
+                </LinkAnchor>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </Card>
+    </MoviesProvider>
+  </Router>
+</StaticRouter>
+`;

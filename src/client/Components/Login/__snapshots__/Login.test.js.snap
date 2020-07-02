@@ -1,0 +1,52 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Login behaviour should render as expected 1`] = `
+<div
+  className="Login"
+>
+  <img
+    alt="login"
+    className="Login__img"
+    src="movies.png"
+  />
+  <form
+    className="form"
+    onSubmit={[Function]}
+  >
+    <div
+      className="Login__container"
+    >
+      <label
+        htmlFor="email"
+      >
+         Email 
+      </label>
+      <input
+        id="email"
+        name="email"
+        type="text"
+      />
+    </div>
+    <div
+      className="Login__container"
+    >
+      <label
+        htmlFor="password"
+      >
+         Password 
+      </label>
+      <input
+        id="password"
+        name="password"
+        type="text"
+      />
+    </div>
+    <button
+      className="Login__button"
+      type="submit"
+    >
+      Login
+    </button>
+  </form>
+</div>
+`;

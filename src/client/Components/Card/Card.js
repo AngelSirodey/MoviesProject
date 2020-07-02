@@ -19,7 +19,7 @@ const Card = ({ movie, fromFavorite, handleDeleteFavorites }) => {
           <div className="Card__links">
             {!fromFavorite ?
               <p onClick={() => saveFavorites(movie)} >Add to favotires</p> :
-              <p onClick={() => handleDeleteFavorites(movie)} >Remove</p>}
+              <p onClick={() => handleDeleteFavorites(movie)} className="Card__favorite--delete" >Remove</p>}
            <Link to={detailsURL}> More details -></Link>
           </div>
         </div>
